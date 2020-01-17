@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e87848d49f654523a774eb76673555f9" Name="Diagram1" ZoomLevel="105">
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_BeerLab" Width="1.5" PointX="0.75" PointY="28.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Cantones" Width="1.5" PointX="6" PointY="15.375" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_CierreCajas" Width="1.5" PointX="7.5" PointY="42.75" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Clientes" Width="1.5" PointX="3" PointY="27.75" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Cuentas_por_pagar" Width="1.5" PointX="7.5" PointY="39.5" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_CuentasCobrar" Width="1.5" PointX="7.5" PointY="22.875" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_DescuentosEstandar" Width="1.5" PointX="3" PointY="36.75" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_DescuentosVIP" Width="1.5" PointX="3" PointY="18.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Factura" Width="1.5" PointX="10.5" PointY="30.75" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Merma" Width="1.5" PointX="15" PointY="31.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Orden_Fabricacion" Width="1.5" PointX="15" PointY="28.125" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" Width="1.5" PointX="8.25" PointY="31.5" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Distritos" Width="1.5" PointX="6" PointY="32.25" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Estado" Width="1.5" PointX="0.75" PointY="25" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Factura" Width="1.5" PointX="5.25" PointY="25.875" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Merma" Width="1.5" PointX="3" PointY="33" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Modulos" Width="1.5" PointX="1.5" PointY="12.875" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Operaciones" Width="1.5" PointX="3.75" PointY="12.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Orden_Fabricacion" Width="1.5" PointX="10.5" PointY="26.875" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Perfil_Operacion" Width="1.5" PointX="6" PointY="19.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Productos" Width="1.5" PointX="12.75" PointY="26.5" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Provincias" Width="1.5" PointX="3.75" PointY="15.375" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Reciclaje" Width="1.5" PointX="18" PointY="28" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Roles" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_RprtCierreCajas" Width="1.5" PointX="7.5" PointY="35.625" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_RprtCuentasxCobrar" Width="1.5" PointX="9.75" PointY="23.125" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Tiempos_Usuario" Width="1.5" PointX="0.75" PointY="18.25" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Tipo_Reciclaje" Width="1.5" PointX="15.75" PointY="25.5" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Ubicaciones" Width="1.5" PointX="15" PointY="36.875" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Usuarios" Width="1.5" PointX="3" PointY="22.25" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Em__4222D4EF" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Canto__Id_pr__52593CB8" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.fk_Direcciones_Cantones_Id_canton" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.fk_Distritos_Cantones_Id_canton" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Cierr__Id_fa__7E37BEF6" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Clien__Id_es__4D94879B" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Direc__Id_cl__59063A47" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_cl__6383C8BA" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__06CD04F7" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__01142BA1" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_Cu__03F0984C" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__656C112C" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__6477ECF3" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_es__68487DD7" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_fa__693CA210" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_de__6D0D32F4" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Me__0F624AF8" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__10566F31" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Or__7A672E12" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__7B5B524B" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.fk_Direcciones_Distritos_Id_distrito" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.fk_Direcciones_Provincias_Id_provincia" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.fk_Distritos_Provincias_Id_provincia" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_es__628FA481" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Merma__Id_es__0C85DE4D" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_es__76969D2E" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_es__6C190EBB" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_es__412EB0B6" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_fa__778AC167" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_fa__09A971A2" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Opera__Id_Mo__46E78A0C" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Op__4AB81AF0" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Ro__49C3F6B7" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_pr__160F4887" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Ubica__Id_pr__73BA3083" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_Ti__151B244E" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ro__403A8C7D" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ti__3F466844" />
+        <EntityTypeShape EntityType="ProyectoFinalBeerLabModel.TBL_Devoluciones" Width="1.5" PointX="7.5" PointY="27" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_cl__70DDC3D8" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_Es__71D1E811" />
+        <AssociationConnector Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_fa__6FE99F9F" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

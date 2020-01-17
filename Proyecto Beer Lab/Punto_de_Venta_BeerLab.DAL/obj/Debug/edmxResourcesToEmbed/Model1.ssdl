@@ -1,0 +1,1274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoFinalBeerLabModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_BeerLab">
+    <Key>
+      <PropertyRef Name="Id_Empresa" />
+    </Key>
+    <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula_Juridica" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Direccion_fisica" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Correo_electronico" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Cantones">
+    <Key>
+      <PropertyRef Name="Id_canton" />
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_canton" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Desc_canton" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Id_provincia" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_CierreCajas">
+    <Key>
+      <PropertyRef Name="Id_CierreCajas" />
+    </Key>
+    <Property Name="Id_CierreCajas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Cierre" Type="datetime" Nullable="false" />
+    <Property Name="Tipo_Factura" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Forma_Pago" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Entradas" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Salidas" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Clientes">
+    <Key>
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo_identificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Identificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Tipo_cliente" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fecha_nacimiento" Type="datetime" />
+    <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_modificacion" Type="datetime" Nullable="false" />
+    <Property Name="Telefono" Type="int" />
+    <Property Name="Correo" Type="varchar" MaxLength="45" />
+    <Property Name="Puntos_acumulados" Type="int" />
+    <Property Name="Id_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Cuentas_por_pagar">
+    <Key>
+      <PropertyRef Name="Id_CxP" />
+    </Key>
+    <Property Name="Id_CxP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Cliente" Type="int" Nullable="false" />
+    <Property Name="Id_modulo" Type="int" Nullable="false" />
+    <Property Name="Fecha_factura" Type="datetime" Nullable="false" />
+    <Property Name="Tipo_devolucion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Monto_devolucion" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_CuentasCobrar">
+    <Key>
+      <PropertyRef Name="Id_CuentaCobrar" />
+    </Key>
+    <Property Name="Id_CuentaCobrar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Facturacion" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_Vencimiento" Type="datetime" Nullable="false" />
+    <Property Name="Identificacion_Cliente" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre_Cliente" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Interes_Mora" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Facturado" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_DescuentosEstandar">
+    <Key>
+      <PropertyRef Name="Id_DescEstandar" />
+    </Key>
+    <Property Name="Id_DescEstandar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_modificacion" Type="datetime" />
+    <Property Name="Cantidad_Minima" Type="int" Nullable="false" />
+    <Property Name="Cantidad_Maxima" Type="int" Nullable="false" />
+    <Property Name="Descuento" Type="int" Nullable="false" />
+    <Property Name="Dia" Type="varchar" MaxLength="20" />
+    <Property Name="Estado" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_DescuentosVIP">
+    <Key>
+      <PropertyRef Name="Id_DescVIP" />
+    </Key>
+    <Property Name="Id_DescVIP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_modificacion" Type="datetime" />
+    <Property Name="Descuento" Type="int" Nullable="false" />
+    <Property Name="Puntos" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Factura">
+    <Key>
+      <PropertyRef Name="Id_detalle_factura" />
+    </Key>
+    <Property Name="Id_detalle_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion_Producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Precio_unitario" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Id_estado" Type="int" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Merma">
+    <Key>
+      <PropertyRef Name="Id_merma_detalle" />
+    </Key>
+    <Property Name="Id_merma_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Costo_unitario" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Id_Merma" Type="int" />
+    <Property Name="Id_producto" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Orden_Fabricacion">
+    <Key>
+      <PropertyRef Name="Id_Detalle" />
+    </Key>
+    <Property Name="Id_Detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desc_Producto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Id_Orden" Type="int" />
+    <Property Name="Id_producto" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Devoluciones">
+    <Key>
+      <PropertyRef Name="Id_Devolucion" />
+    </Key>
+    <Property Name="Id_Devolucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Razon_Devolucion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Estado_Fisico" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MontoDevolucion" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Estado_Inventario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Id_factura" Type="int" Nullable="false" />
+    <Property Name="Id_cliente" Type="int" Nullable="false" />
+    <Property Name="Id_Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Direcciones_cliente">
+    <Key>
+      <PropertyRef Name="Id_direccion" />
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dsc_direccion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Id_provincia" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Id_canton" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_distrito" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_cliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Distritos">
+    <Key>
+      <PropertyRef Name="Id_distrito" />
+      <PropertyRef Name="Id_canton" />
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_distrito" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_canton" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_provincia" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Desc_distrito" Type="varchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Estado">
+    <Key>
+      <PropertyRef Name="Id_estado" />
+    </Key>
+    <Property Name="Id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Estado" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Factura">
+    <Key>
+      <PropertyRef Name="Id_factura" />
+    </Key>
+    <Property Name="Id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo_Factura" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tipo_Pago" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="SubtotalDescuento" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_impuesto" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Fecha_venta" Type="datetime" Nullable="false" />
+    <Property Name="Id_estado" Type="int" />
+    <Property Name="Id_cliente" Type="int" />
+    <Property Name="Id_DescVIP" Type="int" />
+    <Property Name="Id_DescEstandar" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Merma">
+    <Key>
+      <PropertyRef Name="Id_Merma" />
+    </Key>
+    <Property Name="Id_Merma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Modulos">
+    <Key>
+      <PropertyRef Name="Id_Modulo" />
+    </Key>
+    <Property Name="Id_Modulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Modulo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Operaciones">
+    <Key>
+      <PropertyRef Name="Id_Operacion" />
+    </Key>
+    <Property Name="Id_Operacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Operacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Modulo" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Orden_Fabricacion">
+    <Key>
+      <PropertyRef Name="Id_Orden" />
+    </Key>
+    <Property Name="Id_Orden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaEmision" Type="datetime" Nullable="false" />
+    <Property Name="FechaFabricacion" Type="datetime" />
+    <Property Name="Id_estado" Type="int" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Perfil_Operacion">
+    <Key>
+      <PropertyRef Name="Id_PerfilO" />
+    </Key>
+    <Property Name="Id_PerfilO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Rol" Type="int" />
+    <Property Name="Id_Operacion" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Productos">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion_producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Precio_producto" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Tipo_envasado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nivel_fragilidad" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cantidad_mililitros" Type="int" Nullable="false" />
+    <Property Name="Nivel_Alcohol" Type="int" Nullable="false" />
+    <Property Name="Fecha_emision" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_caducidad" Type="datetime" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha_ingreso" Type="datetime" Nullable="false" />
+    <Property Name="Fecha_Modificacion" Type="datetime" />
+    <Property Name="Stock_Inicial" Type="int" Nullable="false" />
+    <Property Name="Stock_Actual" Type="int" Nullable="false" />
+    <Property Name="Punto_Reorden" Type="int" Nullable="false" />
+    <Property Name="Id_estado" Type="int" />
+    <Property Name="Id_detalle_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Provincias">
+    <Key>
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_provincia" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Desc_provincia" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Reciclaje">
+    <Key>
+      <PropertyRef Name="Id_Reciclaje" />
+    </Key>
+    <Property Name="Id_Reciclaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_reciclado" Type="datetime" Nullable="false" />
+    <Property Name="Descripcion_producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad_unidades" Type="int" Nullable="false" />
+    <Property Name="Id_Tipo_Reciclaje" Type="int" />
+    <Property Name="Id_producto" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Roles">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Rol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_RprtCierreCajas">
+    <Key>
+      <PropertyRef Name="Id_RprtCierreCajas" />
+    </Key>
+    <Property Name="Id_RprtCierreCajas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_cierre" Type="datetime" Nullable="false" />
+    <Property Name="Total_Ventas_Contado" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Ventas_Credito" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Devoluciones" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Efectivo" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Tarjeta" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Merma" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_General" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_factura" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_RprtCuentasxCobrar">
+    <Key>
+      <PropertyRef Name="Id_RprtCtasxCobrar" />
+    </Key>
+    <Property Name="Id_RprtCtasxCobrar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_reporte" Type="datetime" Nullable="false" />
+    <Property Name="Total_Ventas_Credito" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Pagado" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_Intereses_Mora" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Total_factura" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_CuentaCobrar" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_Tiempos_Usuario">
+    <Key>
+      <PropertyRef Name="Id_Tiempo" />
+    </Key>
+    <Property Name="Id_Tiempo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tiempos_limite" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Tipo_Reciclaje">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Reciclaje" />
+    </Key>
+    <Property Name="Id_Tipo_Reciclaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion_Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Ubicaciones">
+    <Key>
+      <PropertyRef Name="Id_Ubicacion" />
+    </Key>
+    <Property Name="Id_Ubicacion" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Num_Almacen" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Num_Pasillo" Type="int" Nullable="false" />
+    <Property Name="Num_Estante" Type="int" Nullable="false" />
+    <Property Name="Tipo_Envasado" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tipo_Cerveza" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nivel_Fragilidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Ubicacion_Estante" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Ubicacion_receptora" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Ubicacion_entrega" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Peso_Lote" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Cantidad_Lote" Type="int" Nullable="false" />
+    <Property Name="Fecha_Produccion" Type="datetime" Nullable="false" />
+    <Property Name="Valor_Lote" Type="numeric" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Id_producto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_Usuarios">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identificacion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Fecha_creacion" Type="datetime" />
+    <Property Name="Fecha_modificacion" Type="datetime" />
+    <Property Name="Id_Tiempo" Type="int" />
+    <Property Name="Id_Rol" Type="int" />
+    <Property Name="Id_estado" Type="int" />
+    <Property Name="Id_Empresa" Type="int" />
+  </EntityType>
+  <Association Name="FK__TBL_Canto__Id_pr__52593CB8">
+    <End Role="TBL_Provincias" Type="Self.TBL_Provincias" Multiplicity="1" />
+    <End Role="TBL_Cantones" Type="Self.TBL_Cantones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Cantones">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cierr__Id_fa__7F2BE32F">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_CierreCajas" Type="Self.TBL_CierreCajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_CierreCajas">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Clien__Id_es__4D94879B">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Clientes" Type="Self.TBL_Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Clientes">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cuent__Id_fa__02084FDA">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_CuentasCobrar" Type="Self.TBL_CuentasCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_CuentasCobrar">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cuent__Id_fa__07C12930">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_Cuentas_por_pagar" Type="Self.TBL_Cuentas_por_pagar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Cuentas_por_pagar">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_es__68487DD7">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Factura" Type="Self.TBL_Detalle_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_fa__693CA210">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Factura" Type="Self.TBL_Detalle_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_Me__10566F31">
+    <End Role="TBL_Merma" Type="Self.TBL_Merma" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Merma" Type="Self.TBL_Detalle_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Merma">
+        <PropertyRef Name="Id_Merma" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Merma">
+        <PropertyRef Name="Id_Merma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_Or__7B5B524B">
+    <End Role="TBL_Orden_Fabricacion" Type="Self.TBL_Orden_Fabricacion" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Orden_Fabricacion" Type="Self.TBL_Detalle_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_Orden" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Orden_Fabricacion">
+        <PropertyRef Name="Id_Orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_pr__114A936A">
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Merma" Type="Self.TBL_Detalle_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Merma">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_pr__7C4F7684">
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="0..1" />
+    <End Role="TBL_Detalle_Orden_Fabricacion" Type="Self.TBL_Detalle_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Orden_Fabricacion">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Devol__Id_cl__70DDC3D8">
+    <End Role="TBL_Clientes" Type="Self.TBL_Clientes" Multiplicity="1" />
+    <End Role="TBL_Devoluciones" Type="Self.TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Devol__Id_Es__71D1E811">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="1" />
+    <End Role="TBL_Devoluciones" Type="Self.TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Devol__Id_fa__6FE99F9F">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="1" />
+    <End Role="TBL_Devoluciones" Type="Self.TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Direc__Id_cl__59063A47">
+    <End Role="TBL_Clientes" Type="Self.TBL_Clientes" Multiplicity="1" />
+    <End Role="TBL_Direcciones_cliente" Type="Self.TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_cl__6383C8BA">
+    <End Role="TBL_Clientes" Type="Self.TBL_Clientes" Multiplicity="0..1" />
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_De__6477ECF3">
+    <End Role="TBL_DescuentosVIP" Type="Self.TBL_DescuentosVIP" Multiplicity="0..1" />
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DescuentosVIP">
+        <PropertyRef Name="Id_DescVIP" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_DescVIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_De__656C112C">
+    <End Role="TBL_DescuentosEstandar" Type="Self.TBL_DescuentosEstandar" Multiplicity="0..1" />
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DescuentosEstandar">
+        <PropertyRef Name="Id_DescEstandar" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_DescEstandar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_es__628FA481">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Merma__Id_es__0D7A0286">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Merma" Type="Self.TBL_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Merma">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Opera__Id_Mo__46E78A0C">
+    <End Role="TBL_Modulos" Type="Self.TBL_Modulos" Multiplicity="0..1" />
+    <End Role="TBL_Operaciones" Type="Self.TBL_Operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Modulos">
+        <PropertyRef Name="Id_Modulo" />
+      </Principal>
+      <Dependent Role="TBL_Operaciones">
+        <PropertyRef Name="Id_Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Orden__Id_es__778AC167">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Orden_Fabricacion" Type="Self.TBL_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Orden__Id_fa__787EE5A0">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_Orden_Fabricacion" Type="Self.TBL_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Perfi__Id_Op__4AB81AF0">
+    <End Role="TBL_Operaciones" Type="Self.TBL_Operaciones" Multiplicity="0..1" />
+    <End Role="TBL_Perfil_Operacion" Type="Self.TBL_Perfil_Operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Operaciones">
+        <PropertyRef Name="Id_Operacion" />
+      </Principal>
+      <Dependent Role="TBL_Perfil_Operacion">
+        <PropertyRef Name="Id_Operacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Perfi__Id_Ro__49C3F6B7">
+    <End Role="TBL_Roles" Type="Self.TBL_Roles" Multiplicity="0..1" />
+    <End Role="TBL_Perfil_Operacion" Type="Self.TBL_Perfil_Operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Roles">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="TBL_Perfil_Operacion">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Produ__Id_de__6D0D32F4">
+    <End Role="TBL_Detalle_Factura" Type="Self.TBL_Detalle_Factura" Multiplicity="0..1" />
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_detalle_factura" />
+      </Principal>
+      <Dependent Role="TBL_Productos">
+        <PropertyRef Name="Id_detalle_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Produ__Id_es__6C190EBB">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Productos">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Recic__Id_pr__17036CC0">
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="0..1" />
+    <End Role="TBL_Reciclaje" Type="Self.TBL_Reciclaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Reciclaje">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Recic__Id_Ti__160F4887">
+    <End Role="TBL_Tipo_Reciclaje" Type="Self.TBL_Tipo_Reciclaje" Multiplicity="0..1" />
+    <End Role="TBL_Reciclaje" Type="Self.TBL_Reciclaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Tipo_Reciclaje">
+        <PropertyRef Name="Id_Tipo_Reciclaje" />
+      </Principal>
+      <Dependent Role="TBL_Reciclaje">
+        <PropertyRef Name="Id_Tipo_Reciclaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RprtC__Id_Cu__04E4BC85">
+    <End Role="TBL_CuentasCobrar" Type="Self.TBL_CuentasCobrar" Multiplicity="0..1" />
+    <End Role="TBL_RprtCuentasxCobrar" Type="Self.TBL_RprtCuentasxCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_CuentasCobrar">
+        <PropertyRef Name="Id_CuentaCobrar" />
+      </Principal>
+      <Dependent Role="TBL_RprtCuentasxCobrar">
+        <PropertyRef Name="Id_CuentaCobrar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RprtC__Id_fa__0A9D95DB">
+    <End Role="TBL_Factura" Type="Self.TBL_Factura" Multiplicity="0..1" />
+    <End Role="TBL_RprtCierreCajas" Type="Self.TBL_RprtCierreCajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_RprtCierreCajas">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Ubica__Id_pr__74AE54BC">
+    <End Role="TBL_Productos" Type="Self.TBL_Productos" Multiplicity="1" />
+    <End Role="TBL_Ubicaciones" Type="Self.TBL_Ubicaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Ubicaciones">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_Em__4222D4EF">
+    <End Role="TBL_BeerLab" Type="Self.TBL_BeerLab" Multiplicity="0..1" />
+    <End Role="TBL_Usuarios" Type="Self.TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BeerLab">
+        <PropertyRef Name="Id_Empresa" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_es__412EB0B6">
+    <End Role="TBL_Estado" Type="Self.TBL_Estado" Multiplicity="0..1" />
+    <End Role="TBL_Usuarios" Type="Self.TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_Ro__403A8C7D">
+    <End Role="TBL_Roles" Type="Self.TBL_Roles" Multiplicity="0..1" />
+    <End Role="TBL_Usuarios" Type="Self.TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Roles">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_Ti__3F466844">
+    <End Role="TBL_Tiempos_Usuario" Type="Self.TBL_Tiempos_Usuario" Multiplicity="0..1" />
+    <End Role="TBL_Usuarios" Type="Self.TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Tiempos_Usuario">
+        <PropertyRef Name="Id_Tiempo" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Tiempo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Cantones_Id_canton">
+    <End Role="TBL_Cantones" Type="Self.TBL_Cantones" Multiplicity="1" />
+    <End Role="TBL_Direcciones_cliente" Type="Self.TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Cantones">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Distritos_Id_distrito">
+    <End Role="TBL_Distritos" Type="Self.TBL_Distritos" Multiplicity="1" />
+    <End Role="TBL_Direcciones_cliente" Type="Self.TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Distritos">
+        <PropertyRef Name="Id_distrito" />
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_distrito" />
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Provincias_Id_provincia">
+    <End Role="TBL_Provincias" Type="Self.TBL_Provincias" Multiplicity="1" />
+    <End Role="TBL_Direcciones_cliente" Type="Self.TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Distritos_Cantones_Id_canton">
+    <End Role="TBL_Cantones" Type="Self.TBL_Cantones" Multiplicity="1" />
+    <End Role="TBL_Distritos" Type="Self.TBL_Distritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Cantones">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Distritos">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Distritos_Provincias_Id_provincia">
+    <End Role="TBL_Provincias" Type="Self.TBL_Provincias" Multiplicity="1" />
+    <End Role="TBL_Distritos" Type="Self.TBL_Distritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Distritos">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_Consulta_Factura_Detalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Filtrar_CierreCajas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_CierreCajas" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Filtrar_CuentasCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_CuentasCobrar" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Filtrar_Pagar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_CuentasPagar" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Iniciar_Session" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="identificacion" Type="varchar" Mode="In" />
+    <Parameter Name="contraseña" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_CierreDevoluciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_factura" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_venta" Type="datetime" Mode="In" />
+    <Parameter Name="Tipo_pago" Type="varchar" Mode="In" />
+    <Parameter Name="Total" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_CierreFacturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_factura" Type="int" Mode="In" />
+    <Parameter Name="Fecha_venta" Type="datetime" Mode="In" />
+    <Parameter Name="Tipo_factura" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo_pago" Type="varchar" Mode="In" />
+    <Parameter Name="Total" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_CierreMerma" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Consecutivo_factura" Type="int" Mode="In" />
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Total" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_CierreReciclaje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Total" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoId" Type="varchar" Mode="In" />
+    <Parameter Name="Identificacion" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_nacimiento" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_creacion" Type="datetime" Mode="In" />
+    <Parameter Name="Correo" Type="varchar" Mode="In" />
+    <Parameter Name="Telefono" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_CuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Insertar_CuentasPagar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_CxP" Type="int" Mode="In" />
+    <Parameter Name="Id_Cliente" Type="int" Mode="In" />
+    <Parameter Name="Fecha_factura" Type="datetime" Mode="In" />
+    <Parameter Name="Tipo_devolucion" Type="varchar" Mode="In" />
+    <Parameter Name="Monto_devolucion" Type="numeric" Mode="In" />
+    <Parameter Name="Id_factura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_Descuentos_Estandar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_creacion" Type="datetime" Mode="In" />
+    <Parameter Name="Cantidad_Minima" Type="int" Mode="In" />
+    <Parameter Name="Cantidad_Maxima" Type="int" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Dia" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_DescuentosVIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_creacion" Type="datetime" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Puntos" Type="int" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insertar_Detalle_Orden_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Desc_Producto" Type="varchar" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+    <Parameter Name="Id_Orden" Type="int" Mode="In" />
+    <Parameter Name="Id_Producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_Orden_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Factura" Type="int" Mode="In" />
+    <Parameter Name="Fecha_Emision" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_Fabricacion" Type="datetime" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo_envasado" Type="varchar" Mode="In" />
+    <Parameter Name="Nivel_fragilidad" Type="varchar" Mode="In" />
+    <Parameter Name="Cantidad_mililitros" Type="int" Mode="In" />
+    <Parameter Name="Nivel_Alcohol" Type="int" Mode="In" />
+    <Parameter Name="Precio_producto" Type="decimal" Mode="In" />
+    <Parameter Name="Fecha_emision" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_caducidad" Type="datetime" Mode="In" />
+    <Parameter Name="Stock_Inicial" Type="int" Mode="In" />
+    <Parameter Name="Stock_Actual" Type="int" Mode="In" />
+    <Parameter Name="Fecha_ingreso" Type="datetime" Mode="In" />
+    <Parameter Name="Id_estado" Type="int" Mode="In" />
+    <Parameter Name="Descripcion_producto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_ReporteCierreCajas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_cierre" Type="datetime" Mode="In" />
+    <Parameter Name="Total_Ventas_Contado" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Ventas_Credito" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Devoluciones" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Efectivo" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Tarjeta" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Merma" Type="numeric" Mode="In" />
+    <Parameter Name="Total_General" Type="numeric" Mode="In" />
+    <Parameter Name="Id_factura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Insertar_ReporteCuentasCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha_reporte" Type="datetime" Mode="In" />
+    <Parameter Name="Total_Ventas_Credito" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Pagado" Type="numeric" Mode="In" />
+    <Parameter Name="Total_Intereses_Mora" Type="numeric" Mode="In" />
+    <Parameter Name="Total_factura" Type="numeric" Mode="In" />
+    <Parameter Name="Id_CuentaCobrar" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Insertar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Identificacion" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Correo" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_creacion" Type="datetime" Mode="In" />
+    <Parameter Name="Id_estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_Listar_CierreCajas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Listar_CuentasCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Listar_CuentasPagar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Listar_Direcciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Listar_ReporteCierreCajas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Listar_ReporteCuentasXCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Modificar_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoId" Type="varchar" Mode="In" />
+    <Parameter Name="Identificacion" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_nacimiento" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_modificacion" Type="datetime" Mode="In" />
+    <Parameter Name="Correo" Type="varchar" Mode="In" />
+    <Parameter Name="Telefono" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Modificar_Descuentos_Estandar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_DescEstandar" Type="int" Mode="In" />
+    <Parameter Name="Fecha_modificacion" Type="datetime" Mode="In" />
+    <Parameter Name="Cantidad_Minima" Type="int" Mode="In" />
+    <Parameter Name="Cantidad_Maxima" Type="int" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Dia" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Modificar_DescuentosVIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_DescVIP" Type="int" Mode="In" />
+    <Parameter Name="Fecha_modificacion" Type="datetime" Mode="In" />
+    <Parameter Name="Descuento" Type="int" Mode="In" />
+    <Parameter Name="Puntos" Type="int" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Modificar_Detalle_Factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Factura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Modificar_Detalle_Orden_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Detalle" Type="int" Mode="In" />
+    <Parameter Name="Desc_Producto" Type="varchar" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+    <Parameter Name="IdOrden" Type="int" Mode="In" />
+    <Parameter Name="Id_Producto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Modificar_Ordenes_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Orden" Type="int" Mode="In" />
+    <Parameter Name="Id_Factura" Type="int" Mode="In" />
+    <Parameter Name="Fecha_Emision" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_Fabricacion" Type="datetime" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Modificar_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codigo" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre_producto" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo_envasado" Type="varchar" Mode="In" />
+    <Parameter Name="Nivel_fragilidad" Type="varchar" Mode="In" />
+    <Parameter Name="Cantidad_mililitros" Type="int" Mode="In" />
+    <Parameter Name="Nivel_Alcohol" Type="int" Mode="In" />
+    <Parameter Name="Precio_producto" Type="decimal" Mode="In" />
+    <Parameter Name="Fecha_emision" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_caducidad" Type="datetime" Mode="In" />
+    <Parameter Name="Stock_Inicial" Type="int" Mode="In" />
+    <Parameter Name="Stock_Actual" Type="int" Mode="In" />
+    <Parameter Name="Descripcion_producto" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_Modificacion" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Modificar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Identificacion" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+    <Parameter Name="Correo" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_modificacion" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Mostrar_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mostrar_Descuentos_Estandar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mostrar_DescuentosVIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Mostrar_Detalle_Ordenes_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mostrar_Ordenes_Fabricacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mostrar_Productos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Mostrar_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Tipo_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="identificacion" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ProyectoFinalBeerLabModelStoreContainer">
+    <EntitySet Name="TBL_BeerLab" EntityType="Self.TBL_BeerLab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Cantones" EntityType="Self.TBL_Cantones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_CierreCajas" EntityType="Self.TBL_CierreCajas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Clientes" EntityType="Self.TBL_Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Cuentas_por_pagar" EntityType="Self.TBL_Cuentas_por_pagar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_CuentasCobrar" EntityType="Self.TBL_CuentasCobrar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DescuentosEstandar" EntityType="Self.TBL_DescuentosEstandar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DescuentosVIP" EntityType="Self.TBL_DescuentosVIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Detalle_Factura" EntityType="Self.TBL_Detalle_Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Detalle_Merma" EntityType="Self.TBL_Detalle_Merma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Detalle_Orden_Fabricacion" EntityType="Self.TBL_Detalle_Orden_Fabricacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Devoluciones" EntityType="Self.TBL_Devoluciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Direcciones_cliente" EntityType="Self.TBL_Direcciones_cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Distritos" EntityType="Self.TBL_Distritos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Estado" EntityType="Self.TBL_Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Factura" EntityType="Self.TBL_Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Merma" EntityType="Self.TBL_Merma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Modulos" EntityType="Self.TBL_Modulos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Operaciones" EntityType="Self.TBL_Operaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Orden_Fabricacion" EntityType="Self.TBL_Orden_Fabricacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Perfil_Operacion" EntityType="Self.TBL_Perfil_Operacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Productos" EntityType="Self.TBL_Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Provincias" EntityType="Self.TBL_Provincias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Reciclaje" EntityType="Self.TBL_Reciclaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Roles" EntityType="Self.TBL_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_RprtCierreCajas" EntityType="Self.TBL_RprtCierreCajas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_RprtCuentasxCobrar" EntityType="Self.TBL_RprtCuentasxCobrar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Tiempos_Usuario" EntityType="Self.TBL_Tiempos_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Tipo_Reciclaje" EntityType="Self.TBL_Tipo_Reciclaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Ubicaciones" EntityType="Self.TBL_Ubicaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Usuarios" EntityType="Self.TBL_Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TBL_Canto__Id_pr__52593CB8" Association="Self.FK__TBL_Canto__Id_pr__52593CB8">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cierr__Id_fa__7F2BE32F" Association="Self.FK__TBL_Cierr__Id_fa__7F2BE32F">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_CierreCajas" EntitySet="TBL_CierreCajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Clien__Id_es__4D94879B" Association="Self.FK__TBL_Clien__Id_es__4D94879B">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cuent__Id_fa__02084FDA" Association="Self.FK__TBL_Cuent__Id_fa__02084FDA">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_CuentasCobrar" EntitySet="TBL_CuentasCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cuent__Id_fa__07C12930" Association="Self.FK__TBL_Cuent__Id_fa__07C12930">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Cuentas_por_pagar" EntitySet="TBL_Cuentas_por_pagar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_es__68487DD7" Association="Self.FK__TBL_Detal__Id_es__68487DD7">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_fa__693CA210" Association="Self.FK__TBL_Detal__Id_fa__693CA210">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_Me__10566F31" Association="Self.FK__TBL_Detal__Id_Me__10566F31">
+      <End Role="TBL_Merma" EntitySet="TBL_Merma" />
+      <End Role="TBL_Detalle_Merma" EntitySet="TBL_Detalle_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_Or__7B5B524B" Association="Self.FK__TBL_Detal__Id_Or__7B5B524B">
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+      <End Role="TBL_Detalle_Orden_Fabricacion" EntitySet="TBL_Detalle_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_pr__114A936A" Association="Self.FK__TBL_Detal__Id_pr__114A936A">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Detalle_Merma" EntitySet="TBL_Detalle_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_pr__7C4F7684" Association="Self.FK__TBL_Detal__Id_pr__7C4F7684">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Detalle_Orden_Fabricacion" EntitySet="TBL_Detalle_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Devol__Id_cl__70DDC3D8" Association="Self.FK__TBL_Devol__Id_cl__70DDC3D8">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Devol__Id_Es__71D1E811" Association="Self.FK__TBL_Devol__Id_Es__71D1E811">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Devol__Id_fa__6FE99F9F" Association="Self.FK__TBL_Devol__Id_fa__6FE99F9F">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Direc__Id_cl__59063A47" Association="Self.FK__TBL_Direc__Id_cl__59063A47">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_cl__6383C8BA" Association="Self.FK__TBL_Factu__Id_cl__6383C8BA">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_De__6477ECF3" Association="Self.FK__TBL_Factu__Id_De__6477ECF3">
+      <End Role="TBL_DescuentosVIP" EntitySet="TBL_DescuentosVIP" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_De__656C112C" Association="Self.FK__TBL_Factu__Id_De__656C112C">
+      <End Role="TBL_DescuentosEstandar" EntitySet="TBL_DescuentosEstandar" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_es__628FA481" Association="Self.FK__TBL_Factu__Id_es__628FA481">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Merma__Id_es__0D7A0286" Association="Self.FK__TBL_Merma__Id_es__0D7A0286">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Merma" EntitySet="TBL_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Opera__Id_Mo__46E78A0C" Association="Self.FK__TBL_Opera__Id_Mo__46E78A0C">
+      <End Role="TBL_Modulos" EntitySet="TBL_Modulos" />
+      <End Role="TBL_Operaciones" EntitySet="TBL_Operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Orden__Id_es__778AC167" Association="Self.FK__TBL_Orden__Id_es__778AC167">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Orden__Id_fa__787EE5A0" Association="Self.FK__TBL_Orden__Id_fa__787EE5A0">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Perfi__Id_Op__4AB81AF0" Association="Self.FK__TBL_Perfi__Id_Op__4AB81AF0">
+      <End Role="TBL_Operaciones" EntitySet="TBL_Operaciones" />
+      <End Role="TBL_Perfil_Operacion" EntitySet="TBL_Perfil_Operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Perfi__Id_Ro__49C3F6B7" Association="Self.FK__TBL_Perfi__Id_Ro__49C3F6B7">
+      <End Role="TBL_Roles" EntitySet="TBL_Roles" />
+      <End Role="TBL_Perfil_Operacion" EntitySet="TBL_Perfil_Operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Produ__Id_de__6D0D32F4" Association="Self.FK__TBL_Produ__Id_de__6D0D32F4">
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Produ__Id_es__6C190EBB" Association="Self.FK__TBL_Produ__Id_es__6C190EBB">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Recic__Id_pr__17036CC0" Association="Self.FK__TBL_Recic__Id_pr__17036CC0">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Reciclaje" EntitySet="TBL_Reciclaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Recic__Id_Ti__160F4887" Association="Self.FK__TBL_Recic__Id_Ti__160F4887">
+      <End Role="TBL_Tipo_Reciclaje" EntitySet="TBL_Tipo_Reciclaje" />
+      <End Role="TBL_Reciclaje" EntitySet="TBL_Reciclaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RprtC__Id_Cu__04E4BC85" Association="Self.FK__TBL_RprtC__Id_Cu__04E4BC85">
+      <End Role="TBL_CuentasCobrar" EntitySet="TBL_CuentasCobrar" />
+      <End Role="TBL_RprtCuentasxCobrar" EntitySet="TBL_RprtCuentasxCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RprtC__Id_fa__0A9D95DB" Association="Self.FK__TBL_RprtC__Id_fa__0A9D95DB">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_RprtCierreCajas" EntitySet="TBL_RprtCierreCajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Ubica__Id_pr__74AE54BC" Association="Self.FK__TBL_Ubica__Id_pr__74AE54BC">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Ubicaciones" EntitySet="TBL_Ubicaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_Em__4222D4EF" Association="Self.FK__TBL_Usuar__Id_Em__4222D4EF">
+      <End Role="TBL_BeerLab" EntitySet="TBL_BeerLab" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_es__412EB0B6" Association="Self.FK__TBL_Usuar__Id_es__412EB0B6">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_Ro__403A8C7D" Association="Self.FK__TBL_Usuar__Id_Ro__403A8C7D">
+      <End Role="TBL_Roles" EntitySet="TBL_Roles" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_Ti__3F466844" Association="Self.FK__TBL_Usuar__Id_Ti__3F466844">
+      <End Role="TBL_Tiempos_Usuario" EntitySet="TBL_Tiempos_Usuario" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Cantones_Id_canton" Association="Self.fk_Direcciones_Cantones_Id_canton">
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Distritos_Id_distrito" Association="Self.fk_Direcciones_Distritos_Id_distrito">
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Provincias_Id_provincia" Association="Self.fk_Direcciones_Provincias_Id_provincia">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Distritos_Cantones_Id_canton" Association="Self.fk_Distritos_Cantones_Id_canton">
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Distritos_Provincias_Id_provincia" Association="Self.fk_Distritos_Provincias_Id_provincia">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

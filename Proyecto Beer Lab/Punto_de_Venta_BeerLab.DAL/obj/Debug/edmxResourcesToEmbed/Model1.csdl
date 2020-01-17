@@ -1,0 +1,1527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoFinalBeerLabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ProyectoFinalBeerLabEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_BeerLab" EntityType="ProyectoFinalBeerLabModel.TBL_BeerLab" />
+    <EntitySet Name="TBL_Cantones" EntityType="ProyectoFinalBeerLabModel.TBL_Cantones" />
+    <EntitySet Name="TBL_CierreCajas" EntityType="ProyectoFinalBeerLabModel.TBL_CierreCajas" />
+    <EntitySet Name="TBL_Clientes" EntityType="ProyectoFinalBeerLabModel.TBL_Clientes" />
+    <EntitySet Name="TBL_Cuentas_por_pagar" EntityType="ProyectoFinalBeerLabModel.TBL_Cuentas_por_pagar" />
+    <EntitySet Name="TBL_CuentasCobrar" EntityType="ProyectoFinalBeerLabModel.TBL_CuentasCobrar" />
+    <EntitySet Name="TBL_DescuentosEstandar" EntityType="ProyectoFinalBeerLabModel.TBL_DescuentosEstandar" />
+    <EntitySet Name="TBL_DescuentosVIP" EntityType="ProyectoFinalBeerLabModel.TBL_DescuentosVIP" />
+    <EntitySet Name="TBL_Detalle_Factura" EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Factura" />
+    <EntitySet Name="TBL_Detalle_Merma" EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Merma" />
+    <EntitySet Name="TBL_Detalle_Orden_Fabricacion" EntityType="ProyectoFinalBeerLabModel.TBL_Detalle_Orden_Fabricacion" />
+    <EntitySet Name="TBL_Direcciones_cliente" EntityType="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" />
+    <EntitySet Name="TBL_Distritos" EntityType="ProyectoFinalBeerLabModel.TBL_Distritos" />
+    <EntitySet Name="TBL_Estado" EntityType="ProyectoFinalBeerLabModel.TBL_Estado" />
+    <EntitySet Name="TBL_Factura" EntityType="ProyectoFinalBeerLabModel.TBL_Factura" />
+    <EntitySet Name="TBL_Merma" EntityType="ProyectoFinalBeerLabModel.TBL_Merma" />
+    <EntitySet Name="TBL_Modulos" EntityType="ProyectoFinalBeerLabModel.TBL_Modulos" />
+    <EntitySet Name="TBL_Operaciones" EntityType="ProyectoFinalBeerLabModel.TBL_Operaciones" />
+    <EntitySet Name="TBL_Orden_Fabricacion" EntityType="ProyectoFinalBeerLabModel.TBL_Orden_Fabricacion" />
+    <EntitySet Name="TBL_Perfil_Operacion" EntityType="ProyectoFinalBeerLabModel.TBL_Perfil_Operacion" />
+    <EntitySet Name="TBL_Productos" EntityType="ProyectoFinalBeerLabModel.TBL_Productos" />
+    <EntitySet Name="TBL_Provincias" EntityType="ProyectoFinalBeerLabModel.TBL_Provincias" />
+    <EntitySet Name="TBL_Reciclaje" EntityType="ProyectoFinalBeerLabModel.TBL_Reciclaje" />
+    <EntitySet Name="TBL_Roles" EntityType="ProyectoFinalBeerLabModel.TBL_Roles" />
+    <EntitySet Name="TBL_RprtCierreCajas" EntityType="ProyectoFinalBeerLabModel.TBL_RprtCierreCajas" />
+    <EntitySet Name="TBL_RprtCuentasxCobrar" EntityType="ProyectoFinalBeerLabModel.TBL_RprtCuentasxCobrar" />
+    <EntitySet Name="TBL_Tiempos_Usuario" EntityType="ProyectoFinalBeerLabModel.TBL_Tiempos_Usuario" />
+    <EntitySet Name="TBL_Tipo_Reciclaje" EntityType="ProyectoFinalBeerLabModel.TBL_Tipo_Reciclaje" />
+    <EntitySet Name="TBL_Ubicaciones" EntityType="ProyectoFinalBeerLabModel.TBL_Ubicaciones" />
+    <EntitySet Name="TBL_Usuarios" EntityType="ProyectoFinalBeerLabModel.TBL_Usuarios" />
+    <AssociationSet Name="FK__TBL_Usuar__Id_Em__4222D4EF" Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Em__4222D4EF">
+      <End Role="TBL_BeerLab" EntitySet="TBL_BeerLab" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Canto__Id_pr__52593CB8" Association="ProyectoFinalBeerLabModel.FK__TBL_Canto__Id_pr__52593CB8">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Cantones_Id_canton" Association="ProyectoFinalBeerLabModel.fk_Direcciones_Cantones_Id_canton">
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Distritos_Cantones_Id_canton" Association="ProyectoFinalBeerLabModel.fk_Distritos_Cantones_Id_canton">
+      <End Role="TBL_Cantones" EntitySet="TBL_Cantones" />
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cierr__Id_fa__7E37BEF6" Association="ProyectoFinalBeerLabModel.FK__TBL_Cierr__Id_fa__7E37BEF6">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_CierreCajas" EntitySet="TBL_CierreCajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Clien__Id_es__4D94879B" Association="ProyectoFinalBeerLabModel.FK__TBL_Clien__Id_es__4D94879B">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Direc__Id_cl__59063A47" Association="ProyectoFinalBeerLabModel.FK__TBL_Direc__Id_cl__59063A47">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_cl__6383C8BA" Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_cl__6383C8BA">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cuent__Id_fa__06CD04F7" Association="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__06CD04F7">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Cuentas_por_pagar" EntitySet="TBL_Cuentas_por_pagar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Cuent__Id_fa__01142BA1" Association="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__01142BA1">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_CuentasCobrar" EntitySet="TBL_CuentasCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RprtC__Id_Cu__03F0984C" Association="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_Cu__03F0984C">
+      <End Role="TBL_CuentasCobrar" EntitySet="TBL_CuentasCobrar" />
+      <End Role="TBL_RprtCuentasxCobrar" EntitySet="TBL_RprtCuentasxCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_De__656C112C" Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__656C112C">
+      <End Role="TBL_DescuentosEstandar" EntitySet="TBL_DescuentosEstandar" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_De__6477ECF3" Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__6477ECF3">
+      <End Role="TBL_DescuentosVIP" EntitySet="TBL_DescuentosVIP" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_es__68487DD7" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_es__68487DD7">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_fa__693CA210" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_fa__693CA210">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Produ__Id_de__6D0D32F4" Association="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_de__6D0D32F4">
+      <End Role="TBL_Detalle_Factura" EntitySet="TBL_Detalle_Factura" />
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_Me__0F624AF8" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Me__0F624AF8">
+      <End Role="TBL_Merma" EntitySet="TBL_Merma" />
+      <End Role="TBL_Detalle_Merma" EntitySet="TBL_Detalle_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_pr__10566F31" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__10566F31">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Detalle_Merma" EntitySet="TBL_Detalle_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_Or__7A672E12" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Or__7A672E12">
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+      <End Role="TBL_Detalle_Orden_Fabricacion" EntitySet="TBL_Detalle_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Detal__Id_pr__7B5B524B" Association="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__7B5B524B">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Detalle_Orden_Fabricacion" EntitySet="TBL_Detalle_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Distritos_Id_distrito" Association="ProyectoFinalBeerLabModel.fk_Direcciones_Distritos_Id_distrito">
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Direcciones_Provincias_Id_provincia" Association="ProyectoFinalBeerLabModel.fk_Direcciones_Provincias_Id_provincia">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Direcciones_cliente" EntitySet="TBL_Direcciones_cliente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Distritos_Provincias_Id_provincia" Association="ProyectoFinalBeerLabModel.fk_Distritos_Provincias_Id_provincia">
+      <End Role="TBL_Provincias" EntitySet="TBL_Provincias" />
+      <End Role="TBL_Distritos" EntitySet="TBL_Distritos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Factu__Id_es__628FA481" Association="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_es__628FA481">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Merma__Id_es__0C85DE4D" Association="ProyectoFinalBeerLabModel.FK__TBL_Merma__Id_es__0C85DE4D">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Merma" EntitySet="TBL_Merma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Orden__Id_es__76969D2E" Association="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_es__76969D2E">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Produ__Id_es__6C190EBB" Association="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_es__6C190EBB">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_es__412EB0B6" Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_es__412EB0B6">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Orden__Id_fa__778AC167" Association="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_fa__778AC167">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Orden_Fabricacion" EntitySet="TBL_Orden_Fabricacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RprtC__Id_fa__09A971A2" Association="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_fa__09A971A2">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_RprtCierreCajas" EntitySet="TBL_RprtCierreCajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Opera__Id_Mo__46E78A0C" Association="ProyectoFinalBeerLabModel.FK__TBL_Opera__Id_Mo__46E78A0C">
+      <End Role="TBL_Modulos" EntitySet="TBL_Modulos" />
+      <End Role="TBL_Operaciones" EntitySet="TBL_Operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Perfi__Id_Op__4AB81AF0" Association="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Op__4AB81AF0">
+      <End Role="TBL_Operaciones" EntitySet="TBL_Operaciones" />
+      <End Role="TBL_Perfil_Operacion" EntitySet="TBL_Perfil_Operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Perfi__Id_Ro__49C3F6B7" Association="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Ro__49C3F6B7">
+      <End Role="TBL_Roles" EntitySet="TBL_Roles" />
+      <End Role="TBL_Perfil_Operacion" EntitySet="TBL_Perfil_Operacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Recic__Id_pr__160F4887" Association="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_pr__160F4887">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Reciclaje" EntitySet="TBL_Reciclaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Ubica__Id_pr__73BA3083" Association="ProyectoFinalBeerLabModel.FK__TBL_Ubica__Id_pr__73BA3083">
+      <End Role="TBL_Productos" EntitySet="TBL_Productos" />
+      <End Role="TBL_Ubicaciones" EntitySet="TBL_Ubicaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Recic__Id_Ti__151B244E" Association="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_Ti__151B244E">
+      <End Role="TBL_Tipo_Reciclaje" EntitySet="TBL_Tipo_Reciclaje" />
+      <End Role="TBL_Reciclaje" EntitySet="TBL_Reciclaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_Ro__403A8C7D" Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ro__403A8C7D">
+      <End Role="TBL_Roles" EntitySet="TBL_Roles" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Usuar__Id_Ti__3F466844" Association="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ti__3F466844">
+      <End Role="TBL_Tiempos_Usuario" EntitySet="TBL_Tiempos_Usuario" />
+      <End Role="TBL_Usuarios" EntitySet="TBL_Usuarios" />
+    </AssociationSet>
+    <FunctionImport Name="Sp_CierreDevoluciones" />
+    <FunctionImport Name="Sp_CierreFacturas" />
+    <FunctionImport Name="Sp_CierreMerma" />
+    <FunctionImport Name="Sp_CierreReciclaje" />
+    <FunctionImport Name="sp_Consulta_Factura_Detalle" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Consulta_Factura_Detalle_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Filtrar_CierreCajas" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Filtrar_CierreCajas_Result)">
+      <Parameter Name="Id_CierreCajas" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Filtrar_CuentasCobrar" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Filtrar_CuentasCobrar_Result)">
+      <Parameter Name="Id_CuentasCobrar" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Filtrar_Pagar" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Filtrar_Pagar_Result)">
+      <Parameter Name="Id_CuentasPagar" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Iniciar_Session" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Iniciar_Session_Result)">
+      <Parameter Name="identificacion" Mode="In" Type="String" />
+      <Parameter Name="contraseña" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CierreCajas" />
+    <FunctionImport Name="sp_Insertar_Clientes">
+      <Parameter Name="TipoId" Mode="In" Type="String" />
+      <Parameter Name="Identificacion" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Fecha_nacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_creacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CuentaCobrar" />
+    <FunctionImport Name="sp_Insertar_Descuentos_Estandar">
+      <Parameter Name="Fecha_creacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Cantidad_Minima" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad_Maxima" Mode="In" Type="Int32" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Dia" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Insertar_DescuentosVIP">
+      <Parameter Name="Fecha_creacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Puntos" Mode="In" Type="Int32" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Insertar_Productos">
+      <Parameter Name="Codigo" Mode="In" Type="String" />
+      <Parameter Name="Nombre_producto" Mode="In" Type="String" />
+      <Parameter Name="Tipo_envasado" Mode="In" Type="String" />
+      <Parameter Name="Nivel_fragilidad" Mode="In" Type="String" />
+      <Parameter Name="Cantidad_mililitros" Mode="In" Type="Int32" />
+      <Parameter Name="Nivel_Alcohol" Mode="In" Type="Int32" />
+      <Parameter Name="Precio_producto" Mode="In" Type="Decimal" />
+      <Parameter Name="Fecha_emision" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_caducidad" Mode="In" Type="DateTime" />
+      <Parameter Name="Stock_Inicial" Mode="In" Type="Int32" />
+      <Parameter Name="Stock_Actual" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_ingreso" Mode="In" Type="DateTime" />
+      <Parameter Name="Id_estado" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion_producto" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_ReporteCierreCajas">
+      <Parameter Name="Fecha_cierre" Mode="In" Type="DateTime" />
+      <Parameter Name="Total_Ventas_Contado" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Ventas_Credito" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Devoluciones" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Efectivo" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Tarjeta" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Merma" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_General" Mode="In" Type="Decimal" />
+      <Parameter Name="Id_factura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Insertar_Usuarios">
+      <Parameter Name="Identificacion" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Fecha_creacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Id_estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Listar_CierreCajas" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Listar_CierreCajas_Result)" />
+    <FunctionImport Name="Sp_Listar_CuentasCobrar" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Listar_CuentasCobrar_Result)" />
+    <FunctionImport Name="Sp_Listar_CuentasPagar" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Listar_CuentasPagar_Result)" />
+    <FunctionImport Name="Sp_Listar_ReporteCierreCajas" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Listar_ReporteCierreCajas_Result)" />
+    <FunctionImport Name="Sp_Listar_ReporteCuentasXCobrar" ReturnType="Collection(ProyectoFinalBeerLabModel.Sp_Listar_ReporteCuentasXCobrar_Result)" />
+    <FunctionImport Name="sp_Modificar_Clientes">
+      <Parameter Name="TipoId" Mode="In" Type="String" />
+      <Parameter Name="Identificacion" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Fecha_nacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_modificacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Modificar_Descuentos_Estandar">
+      <Parameter Name="Id_DescEstandar" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_modificacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Cantidad_Minima" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad_Maxima" Mode="In" Type="Int32" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Dia" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Modificar_DescuentosVIP">
+      <Parameter Name="Id_DescVIP" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_modificacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Descuento" Mode="In" Type="Int32" />
+      <Parameter Name="Puntos" Mode="In" Type="Int32" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Modificar_Productos">
+      <Parameter Name="Codigo" Mode="In" Type="String" />
+      <Parameter Name="Nombre_producto" Mode="In" Type="String" />
+      <Parameter Name="Tipo_envasado" Mode="In" Type="String" />
+      <Parameter Name="Nivel_fragilidad" Mode="In" Type="String" />
+      <Parameter Name="Cantidad_mililitros" Mode="In" Type="Int32" />
+      <Parameter Name="Nivel_Alcohol" Mode="In" Type="Int32" />
+      <Parameter Name="Precio_producto" Mode="In" Type="Decimal" />
+      <Parameter Name="Fecha_emision" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_caducidad" Mode="In" Type="DateTime" />
+      <Parameter Name="Stock_Inicial" Mode="In" Type="Int32" />
+      <Parameter Name="Stock_Actual" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion_producto" Mode="In" Type="String" />
+      <Parameter Name="Fecha_Modificacion" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Modificar_Usuarios">
+      <Parameter Name="Identificacion" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Fecha_modificacion" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Mostrar_Clientes" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_Clientes_Result)" />
+    <FunctionImport Name="sp_Mostrar_Descuentos_Estandar" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_Descuentos_Estandar_Result)" />
+    <FunctionImport Name="sp_Mostrar_DescuentosVIP" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_DescuentosVIP_Result)" />
+    <FunctionImport Name="sp_Mostrar_Productos" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_Productos_Result)" />
+    <FunctionImport Name="sp_Mostrar_Usuarios" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_Usuarios_Result)" />
+    <FunctionImport Name="sp_Tipo_Usuario" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Tipo_Usuario_Result)">
+      <Parameter Name="identificacion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Insertar_Orden_Fabricacion">
+      <Parameter Name="Id_Factura" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_Emision" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_Fabricacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Modificar_Ordenes_Fabricacion">
+      <Parameter Name="Id_Orden" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Factura" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_Emision" Mode="In" Type="DateTime" />
+      <Parameter Name="Fecha_Fabricacion" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Mostrar_Ordenes_Fabricacion" ReturnType="Collection(ProyectoFinalBeerLabModel.sp_Mostrar_Ordenes_Fabricacion_Result)" />
+    <FunctionImport Name="SP_Modificar_Detalle_Factura">
+      <Parameter Name="ID_Factura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Listar_Direcciones" ReturnType="Collection(ProyectoFinalBeerLabModel.SP_Listar_Direcciones_Result)" />
+    <FunctionImport Name="Sp_Insertar_CierreDevoluciones">
+      <Parameter Name="Id_factura" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Fecha_venta" Mode="In" Type="DateTime" />
+      <Parameter Name="Tipo_pago" Mode="In" Type="String" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CierreFacturas">
+      <Parameter Name="Id_factura" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_venta" Mode="In" Type="DateTime" />
+      <Parameter Name="Tipo_factura" Mode="In" Type="String" />
+      <Parameter Name="Tipo_pago" Mode="In" Type="String" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CierreMerma">
+      <Parameter Name="Consecutivo_factura" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CierreReciclaje">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_CuentasPagar">
+      <Parameter Name="Id_CxP" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Cliente" Mode="In" Type="Int32" />
+      <Parameter Name="Fecha_factura" Mode="In" Type="DateTime" />
+      <Parameter Name="Tipo_devolucion" Mode="In" Type="String" />
+      <Parameter Name="Monto_devolucion" Mode="In" Type="Decimal" />
+      <Parameter Name="Id_factura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Insertar_ReporteCuentasCobrar">
+      <Parameter Name="Fecha_reporte" Mode="In" Type="DateTime" />
+      <Parameter Name="Total_Ventas_Credito" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Pagado" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Intereses_Mora" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_factura" Mode="In" Type="Decimal" />
+      <Parameter Name="Id_CuentaCobrar" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TBL_Devoluciones" EntityType="ProyectoFinalBeerLabModel.TBL_Devoluciones" />
+    <AssociationSet Name="FK__TBL_Devol__Id_cl__70DDC3D8" Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_cl__70DDC3D8">
+      <End Role="TBL_Clientes" EntitySet="TBL_Clientes" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Devol__Id_Es__71D1E811" Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_Es__71D1E811">
+      <End Role="TBL_Estado" EntitySet="TBL_Estado" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_Devol__Id_fa__6FE99F9F" Association="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_fa__6FE99F9F">
+      <End Role="TBL_Factura" EntitySet="TBL_Factura" />
+      <End Role="TBL_Devoluciones" EntitySet="TBL_Devoluciones" />
+    </AssociationSet>
+    <FunctionImport Name="SP_Insertar_Detalle_Orden_Fabricacion">
+      <Parameter Name="Desc_Producto" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Orden" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Modificar_Detalle_Orden_Fabricacion">
+      <Parameter Name="Id_Detalle" Mode="In" Type="Int32" />
+      <Parameter Name="Desc_Producto" Mode="In" Type="String" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="IdOrden" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Producto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Mostrar_Detalle_Ordenes_Fabricacion" ReturnType="Collection(ProyectoFinalBeerLabModel.SP_Mostrar_Detalle_Ordenes_Fabricacion_Result)" />
+  </EntityContainer>
+  <EntityType Name="TBL_BeerLab">
+    <Key>
+      <PropertyRef Name="Id_Empresa" />
+    </Key>
+    <Property Name="Id_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula_Juridica" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Direccion_fisica" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Correo_electronico" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Usuarios" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Em__4222D4EF" FromRole="TBL_BeerLab" ToRole="TBL_Usuarios" />
+  </EntityType>
+  <EntityType Name="TBL_Cantones">
+    <Key>
+      <PropertyRef Name="Id_canton" />
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_canton" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Desc_canton" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Id_provincia" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="TBL_Provincias" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Canto__Id_pr__52593CB8" FromRole="TBL_Cantones" ToRole="TBL_Provincias" />
+    <NavigationProperty Name="TBL_Direcciones_cliente" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Cantones_Id_canton" FromRole="TBL_Cantones" ToRole="TBL_Direcciones_cliente" />
+    <NavigationProperty Name="TBL_Distritos" Relationship="ProyectoFinalBeerLabModel.fk_Distritos_Cantones_Id_canton" FromRole="TBL_Cantones" ToRole="TBL_Distritos" />
+  </EntityType>
+  <EntityType Name="TBL_CierreCajas">
+    <Key>
+      <PropertyRef Name="Id_CierreCajas" />
+    </Key>
+    <Property Name="Id_CierreCajas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Cierre" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Tipo_Factura" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Forma_Pago" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Entradas" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Salidas" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cierr__Id_fa__7E37BEF6" FromRole="TBL_CierreCajas" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_Clientes">
+    <Key>
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo_identificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Identificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_cliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_nacimiento" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Telefono" Type="Int32" />
+    <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Puntos_acumulados" Type="Int32" />
+    <Property Name="Id_estado" Type="Int32" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Clien__Id_es__4D94879B" FromRole="TBL_Clientes" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Direcciones_cliente" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Direc__Id_cl__59063A47" FromRole="TBL_Clientes" ToRole="TBL_Direcciones_cliente" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_cl__6383C8BA" FromRole="TBL_Clientes" ToRole="TBL_Factura" />
+    <NavigationProperty Name="TBL_Devoluciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_cl__70DDC3D8" FromRole="TBL_Clientes" ToRole="TBL_Devoluciones" />
+  </EntityType>
+  <EntityType Name="TBL_Cuentas_por_pagar">
+    <Key>
+      <PropertyRef Name="Id_CxP" />
+    </Key>
+    <Property Name="Id_CxP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
+    <Property Name="Id_modulo" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_factura" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Tipo_devolucion" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Monto_devolucion" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__06CD04F7" FromRole="TBL_Cuentas_por_pagar" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_CuentasCobrar">
+    <Key>
+      <PropertyRef Name="Id_CuentaCobrar" />
+    </Key>
+    <Property Name="Id_CuentaCobrar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Facturacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Vencimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Identificacion_Cliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Cliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Interes_Mora" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Facturado" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__01142BA1" FromRole="TBL_CuentasCobrar" ToRole="TBL_Factura" />
+    <NavigationProperty Name="TBL_RprtCuentasxCobrar" Relationship="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_Cu__03F0984C" FromRole="TBL_CuentasCobrar" ToRole="TBL_RprtCuentasxCobrar" />
+  </EntityType>
+  <EntityType Name="TBL_DescuentosEstandar">
+    <Key>
+      <PropertyRef Name="Id_DescEstandar" />
+    </Key>
+    <Property Name="Id_DescEstandar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Cantidad_Minima" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad_Maxima" Type="Int32" Nullable="false" />
+    <Property Name="Descuento" Type="Int32" Nullable="false" />
+    <Property Name="Dia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__656C112C" FromRole="TBL_DescuentosEstandar" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_DescuentosVIP">
+    <Key>
+      <PropertyRef Name="Id_DescVIP" />
+    </Key>
+    <Property Name="Id_DescVIP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Descuento" Type="Int32" Nullable="false" />
+    <Property Name="Puntos" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__6477ECF3" FromRole="TBL_DescuentosVIP" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Factura">
+    <Key>
+      <PropertyRef Name="Id_detalle_factura" />
+    </Key>
+    <Property Name="Id_detalle_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Precio_unitario" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Id_estado" Type="Int32" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_es__68487DD7" FromRole="TBL_Detalle_Factura" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_fa__693CA210" FromRole="TBL_Detalle_Factura" ToRole="TBL_Factura" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_de__6D0D32F4" FromRole="TBL_Detalle_Factura" ToRole="TBL_Productos" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Merma">
+    <Key>
+      <PropertyRef Name="Id_merma_detalle" />
+    </Key>
+    <Property Name="Id_merma_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Costo_unitario" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Id_Merma" Type="Int32" />
+    <Property Name="Id_producto" Type="Int32" />
+    <NavigationProperty Name="TBL_Merma" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Me__0F624AF8" FromRole="TBL_Detalle_Merma" ToRole="TBL_Merma" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__10566F31" FromRole="TBL_Detalle_Merma" ToRole="TBL_Productos" />
+  </EntityType>
+  <EntityType Name="TBL_Detalle_Orden_Fabricacion">
+    <Key>
+      <PropertyRef Name="Id_Detalle" />
+    </Key>
+    <Property Name="Id_Detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Desc_Producto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Id_Orden" Type="Int32" />
+    <Property Name="Id_producto" Type="Int32" />
+    <NavigationProperty Name="TBL_Orden_Fabricacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Or__7A672E12" FromRole="TBL_Detalle_Orden_Fabricacion" ToRole="TBL_Orden_Fabricacion" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__7B5B524B" FromRole="TBL_Detalle_Orden_Fabricacion" ToRole="TBL_Productos" />
+  </EntityType>
+  <EntityType Name="TBL_Direcciones_cliente">
+    <Key>
+      <PropertyRef Name="Id_direccion" />
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dsc_direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Id_provincia" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Id_canton" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Id_distrito" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_Cantones" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Cantones_Id_canton" FromRole="TBL_Direcciones_cliente" ToRole="TBL_Cantones" />
+    <NavigationProperty Name="TBL_Clientes" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Direc__Id_cl__59063A47" FromRole="TBL_Direcciones_cliente" ToRole="TBL_Clientes" />
+    <NavigationProperty Name="TBL_Distritos" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Distritos_Id_distrito" FromRole="TBL_Direcciones_cliente" ToRole="TBL_Distritos" />
+    <NavigationProperty Name="TBL_Provincias" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Provincias_Id_provincia" FromRole="TBL_Direcciones_cliente" ToRole="TBL_Provincias" />
+  </EntityType>
+  <EntityType Name="TBL_Distritos">
+    <Key>
+      <PropertyRef Name="Id_distrito" />
+      <PropertyRef Name="Id_canton" />
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_distrito" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Id_canton" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Id_provincia" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Desc_distrito" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Cantones" Relationship="ProyectoFinalBeerLabModel.fk_Distritos_Cantones_Id_canton" FromRole="TBL_Distritos" ToRole="TBL_Cantones" />
+    <NavigationProperty Name="TBL_Direcciones_cliente" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Distritos_Id_distrito" FromRole="TBL_Distritos" ToRole="TBL_Direcciones_cliente" />
+    <NavigationProperty Name="TBL_Provincias" Relationship="ProyectoFinalBeerLabModel.fk_Distritos_Provincias_Id_provincia" FromRole="TBL_Distritos" ToRole="TBL_Provincias" />
+  </EntityType>
+  <EntityType Name="TBL_Estado">
+    <Key>
+      <PropertyRef Name="Id_estado" />
+    </Key>
+    <Property Name="Id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Estado" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Clientes" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Clien__Id_es__4D94879B" FromRole="TBL_Estado" ToRole="TBL_Clientes" />
+    <NavigationProperty Name="TBL_Detalle_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_es__68487DD7" FromRole="TBL_Estado" ToRole="TBL_Detalle_Factura" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_es__628FA481" FromRole="TBL_Estado" ToRole="TBL_Factura" />
+    <NavigationProperty Name="TBL_Merma" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Merma__Id_es__0C85DE4D" FromRole="TBL_Estado" ToRole="TBL_Merma" />
+    <NavigationProperty Name="TBL_Orden_Fabricacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_es__76969D2E" FromRole="TBL_Estado" ToRole="TBL_Orden_Fabricacion" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_es__6C190EBB" FromRole="TBL_Estado" ToRole="TBL_Productos" />
+    <NavigationProperty Name="TBL_Usuarios" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_es__412EB0B6" FromRole="TBL_Estado" ToRole="TBL_Usuarios" />
+    <NavigationProperty Name="TBL_Devoluciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_Es__71D1E811" FromRole="TBL_Estado" ToRole="TBL_Devoluciones" />
+  </EntityType>
+  <EntityType Name="TBL_Factura">
+    <Key>
+      <PropertyRef Name="Id_factura" />
+    </Key>
+    <Property Name="Id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo_Factura" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Pago" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="SubtotalDescuento" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_impuesto" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Fecha_venta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id_estado" Type="Int32" />
+    <Property Name="Id_cliente" Type="Int32" />
+    <Property Name="Id_DescVIP" Type="Int32" />
+    <Property Name="Id_DescEstandar" Type="Int32" />
+    <NavigationProperty Name="TBL_CierreCajas" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cierr__Id_fa__7E37BEF6" FromRole="TBL_Factura" ToRole="TBL_CierreCajas" />
+    <NavigationProperty Name="TBL_Clientes" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_cl__6383C8BA" FromRole="TBL_Factura" ToRole="TBL_Clientes" />
+    <NavigationProperty Name="TBL_Cuentas_por_pagar" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__06CD04F7" FromRole="TBL_Factura" ToRole="TBL_Cuentas_por_pagar" />
+    <NavigationProperty Name="TBL_CuentasCobrar" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Cuent__Id_fa__01142BA1" FromRole="TBL_Factura" ToRole="TBL_CuentasCobrar" />
+    <NavigationProperty Name="TBL_DescuentosEstandar" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__656C112C" FromRole="TBL_Factura" ToRole="TBL_DescuentosEstandar" />
+    <NavigationProperty Name="TBL_DescuentosVIP" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_De__6477ECF3" FromRole="TBL_Factura" ToRole="TBL_DescuentosVIP" />
+    <NavigationProperty Name="TBL_Detalle_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_fa__693CA210" FromRole="TBL_Factura" ToRole="TBL_Detalle_Factura" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Factu__Id_es__628FA481" FromRole="TBL_Factura" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Orden_Fabricacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_fa__778AC167" FromRole="TBL_Factura" ToRole="TBL_Orden_Fabricacion" />
+    <NavigationProperty Name="TBL_RprtCierreCajas" Relationship="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_fa__09A971A2" FromRole="TBL_Factura" ToRole="TBL_RprtCierreCajas" />
+    <NavigationProperty Name="TBL_Devoluciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_fa__6FE99F9F" FromRole="TBL_Factura" ToRole="TBL_Devoluciones" />
+  </EntityType>
+  <EntityType Name="TBL_Merma">
+    <Key>
+      <PropertyRef Name="Id_Merma" />
+    </Key>
+    <Property Name="Id_Merma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_estado" Type="Int32" />
+    <NavigationProperty Name="TBL_Detalle_Merma" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Me__0F624AF8" FromRole="TBL_Merma" ToRole="TBL_Detalle_Merma" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Merma__Id_es__0C85DE4D" FromRole="TBL_Merma" ToRole="TBL_Estado" />
+  </EntityType>
+  <EntityType Name="TBL_Modulos">
+    <Key>
+      <PropertyRef Name="Id_Modulo" />
+    </Key>
+    <Property Name="Id_Modulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Modulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Operaciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Opera__Id_Mo__46E78A0C" FromRole="TBL_Modulos" ToRole="TBL_Operaciones" />
+  </EntityType>
+  <EntityType Name="TBL_Operaciones">
+    <Key>
+      <PropertyRef Name="Id_Operacion" />
+    </Key>
+    <Property Name="Id_Operacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Operacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Modulo" Type="Int32" />
+    <NavigationProperty Name="TBL_Modulos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Opera__Id_Mo__46E78A0C" FromRole="TBL_Operaciones" ToRole="TBL_Modulos" />
+    <NavigationProperty Name="TBL_Perfil_Operacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Op__4AB81AF0" FromRole="TBL_Operaciones" ToRole="TBL_Perfil_Operacion" />
+  </EntityType>
+  <EntityType Name="TBL_Orden_Fabricacion">
+    <Key>
+      <PropertyRef Name="Id_Orden" />
+    </Key>
+    <Property Name="Id_Orden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaEmision" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFabricacion" Type="DateTime" Precision="3" />
+    <Property Name="Id_estado" Type="Int32" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Detalle_Orden_Fabricacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_Or__7A672E12" FromRole="TBL_Orden_Fabricacion" ToRole="TBL_Detalle_Orden_Fabricacion" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_es__76969D2E" FromRole="TBL_Orden_Fabricacion" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Orden__Id_fa__778AC167" FromRole="TBL_Orden_Fabricacion" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_Perfil_Operacion">
+    <Key>
+      <PropertyRef Name="Id_PerfilO" />
+    </Key>
+    <Property Name="Id_PerfilO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Rol" Type="Int32" />
+    <Property Name="Id_Operacion" Type="Int32" />
+    <NavigationProperty Name="TBL_Operaciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Op__4AB81AF0" FromRole="TBL_Perfil_Operacion" ToRole="TBL_Operaciones" />
+    <NavigationProperty Name="TBL_Roles" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Ro__49C3F6B7" FromRole="TBL_Perfil_Operacion" ToRole="TBL_Roles" />
+  </EntityType>
+  <EntityType Name="TBL_Productos">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion_producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Precio_producto" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Tipo_envasado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nivel_fragilidad" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_mililitros" Type="Int32" Nullable="false" />
+    <Property Name="Nivel_Alcohol" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_emision" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_caducidad" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Stock_Inicial" Type="Int32" Nullable="false" />
+    <Property Name="Stock_Actual" Type="Int32" Nullable="false" />
+    <Property Name="Punto_Reorden" Type="Int32" Nullable="false" />
+    <Property Name="Id_estado" Type="Int32" />
+    <Property Name="Id_detalle_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Detalle_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_de__6D0D32F4" FromRole="TBL_Productos" ToRole="TBL_Detalle_Factura" />
+    <NavigationProperty Name="TBL_Detalle_Merma" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__10566F31" FromRole="TBL_Productos" ToRole="TBL_Detalle_Merma" />
+    <NavigationProperty Name="TBL_Detalle_Orden_Fabricacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Detal__Id_pr__7B5B524B" FromRole="TBL_Productos" ToRole="TBL_Detalle_Orden_Fabricacion" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Produ__Id_es__6C190EBB" FromRole="TBL_Productos" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Reciclaje" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_pr__160F4887" FromRole="TBL_Productos" ToRole="TBL_Reciclaje" />
+    <NavigationProperty Name="TBL_Ubicaciones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Ubica__Id_pr__73BA3083" FromRole="TBL_Productos" ToRole="TBL_Ubicaciones" />
+  </EntityType>
+  <EntityType Name="TBL_Provincias">
+    <Key>
+      <PropertyRef Name="Id_provincia" />
+    </Key>
+    <Property Name="Id_provincia" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Desc_provincia" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Cantones" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Canto__Id_pr__52593CB8" FromRole="TBL_Provincias" ToRole="TBL_Cantones" />
+    <NavigationProperty Name="TBL_Direcciones_cliente" Relationship="ProyectoFinalBeerLabModel.fk_Direcciones_Provincias_Id_provincia" FromRole="TBL_Provincias" ToRole="TBL_Direcciones_cliente" />
+    <NavigationProperty Name="TBL_Distritos" Relationship="ProyectoFinalBeerLabModel.fk_Distritos_Provincias_Id_provincia" FromRole="TBL_Provincias" ToRole="TBL_Distritos" />
+  </EntityType>
+  <EntityType Name="TBL_Reciclaje">
+    <Key>
+      <PropertyRef Name="Id_Reciclaje" />
+    </Key>
+    <Property Name="Id_Reciclaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_reciclado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Descripcion_producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_unidades" Type="Int32" Nullable="false" />
+    <Property Name="Id_Tipo_Reciclaje" Type="Int32" />
+    <Property Name="Id_producto" Type="Int32" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_pr__160F4887" FromRole="TBL_Reciclaje" ToRole="TBL_Productos" />
+    <NavigationProperty Name="TBL_Tipo_Reciclaje" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_Ti__151B244E" FromRole="TBL_Reciclaje" ToRole="TBL_Tipo_Reciclaje" />
+  </EntityType>
+  <EntityType Name="TBL_Roles">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Perfil_Operacion" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Perfi__Id_Ro__49C3F6B7" FromRole="TBL_Roles" ToRole="TBL_Perfil_Operacion" />
+    <NavigationProperty Name="TBL_Usuarios" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ro__403A8C7D" FromRole="TBL_Roles" ToRole="TBL_Usuarios" />
+  </EntityType>
+  <EntityType Name="TBL_RprtCierreCajas">
+    <Key>
+      <PropertyRef Name="Id_RprtCierreCajas" />
+    </Key>
+    <Property Name="Id_RprtCierreCajas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_cierre" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total_Ventas_Contado" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Ventas_Credito" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Devoluciones" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Efectivo" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Tarjeta" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Merma" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_General" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_factura" Type="Int32" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_fa__09A971A2" FromRole="TBL_RprtCierreCajas" ToRole="TBL_Factura" />
+  </EntityType>
+  <EntityType Name="TBL_RprtCuentasxCobrar">
+    <Key>
+      <PropertyRef Name="Id_RprtCtasxCobrar" />
+    </Key>
+    <Property Name="Id_RprtCtasxCobrar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_reporte" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total_Ventas_Credito" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Pagado" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_Intereses_Mora" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Total_factura" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_CuentaCobrar" Type="Int32" />
+    <NavigationProperty Name="TBL_CuentasCobrar" Relationship="ProyectoFinalBeerLabModel.FK__TBL_RprtC__Id_Cu__03F0984C" FromRole="TBL_RprtCuentasxCobrar" ToRole="TBL_CuentasCobrar" />
+  </EntityType>
+  <EntityType Name="TBL_Tiempos_Usuario">
+    <Key>
+      <PropertyRef Name="Id_Tiempo" />
+    </Key>
+    <Property Name="Id_Tiempo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tiempos_limite" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="TBL_Usuarios" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ti__3F466844" FromRole="TBL_Tiempos_Usuario" ToRole="TBL_Usuarios" />
+  </EntityType>
+  <EntityType Name="TBL_Tipo_Reciclaje">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Reciclaje" />
+    </Key>
+    <Property Name="Id_Tipo_Reciclaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_Reciclaje" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Recic__Id_Ti__151B244E" FromRole="TBL_Tipo_Reciclaje" ToRole="TBL_Reciclaje" />
+  </EntityType>
+  <EntityType Name="TBL_Ubicaciones">
+    <Key>
+      <PropertyRef Name="Id_Ubicacion" />
+    </Key>
+    <Property Name="Id_Ubicacion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Num_Almacen" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Num_Pasillo" Type="Int32" Nullable="false" />
+    <Property Name="Num_Estante" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_Envasado" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_Cerveza" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Nivel_Fragilidad" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Ubicacion_Estante" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Ubicacion_receptora" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Ubicacion_entrega" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Peso_Lote" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Cantidad_Lote" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Produccion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Valor_Lote" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Id_producto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_Productos" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Ubica__Id_pr__73BA3083" FromRole="TBL_Ubicaciones" ToRole="TBL_Productos" />
+  </EntityType>
+  <EntityType Name="TBL_Usuarios">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_creacion" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Id_Tiempo" Type="Int32" />
+    <Property Name="Id_Rol" Type="Int32" />
+    <Property Name="Id_estado" Type="Int32" />
+    <Property Name="Id_Empresa" Type="Int32" />
+    <NavigationProperty Name="TBL_BeerLab" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Em__4222D4EF" FromRole="TBL_Usuarios" ToRole="TBL_BeerLab" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_es__412EB0B6" FromRole="TBL_Usuarios" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Roles" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ro__403A8C7D" FromRole="TBL_Usuarios" ToRole="TBL_Roles" />
+    <NavigationProperty Name="TBL_Tiempos_Usuario" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Usuar__Id_Ti__3F466844" FromRole="TBL_Usuarios" ToRole="TBL_Tiempos_Usuario" />
+  </EntityType>
+  <Association Name="FK__TBL_Usuar__Id_Em__4222D4EF">
+    <End Type="ProyectoFinalBeerLabModel.TBL_BeerLab" Role="TBL_BeerLab" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Usuarios" Role="TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BeerLab">
+        <PropertyRef Name="Id_Empresa" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Canto__Id_pr__52593CB8">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Provincias" Role="TBL_Provincias" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Cantones" Role="TBL_Cantones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Cantones">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Cantones_Id_canton">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Cantones" Role="TBL_Cantones" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" Role="TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Cantones">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Distritos_Cantones_Id_canton">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Cantones" Role="TBL_Cantones" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Distritos" Role="TBL_Distritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Cantones">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Distritos">
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cierr__Id_fa__7E37BEF6">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_CierreCajas" Role="TBL_CierreCajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_CierreCajas">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Clien__Id_es__4D94879B">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Clientes" Role="TBL_Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Clientes">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Direc__Id_cl__59063A47">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Clientes" Role="TBL_Clientes" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" Role="TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_cl__6383C8BA">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Clientes" Role="TBL_Clientes" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cuent__Id_fa__06CD04F7">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Cuentas_por_pagar" Role="TBL_Cuentas_por_pagar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Cuentas_por_pagar">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Cuent__Id_fa__01142BA1">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_CuentasCobrar" Role="TBL_CuentasCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_CuentasCobrar">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RprtC__Id_Cu__03F0984C">
+    <End Type="ProyectoFinalBeerLabModel.TBL_CuentasCobrar" Role="TBL_CuentasCobrar" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_RprtCuentasxCobrar" Role="TBL_RprtCuentasxCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_CuentasCobrar">
+        <PropertyRef Name="Id_CuentaCobrar" />
+      </Principal>
+      <Dependent Role="TBL_RprtCuentasxCobrar">
+        <PropertyRef Name="Id_CuentaCobrar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_De__656C112C">
+    <End Type="ProyectoFinalBeerLabModel.TBL_DescuentosEstandar" Role="TBL_DescuentosEstandar" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DescuentosEstandar">
+        <PropertyRef Name="Id_DescEstandar" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_DescEstandar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_De__6477ECF3">
+    <End Type="ProyectoFinalBeerLabModel.TBL_DescuentosVIP" Role="TBL_DescuentosVIP" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DescuentosVIP">
+        <PropertyRef Name="Id_DescVIP" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_DescVIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_es__68487DD7">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Factura" Role="TBL_Detalle_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_fa__693CA210">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Factura" Role="TBL_Detalle_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Produ__Id_de__6D0D32F4">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Factura" Role="TBL_Detalle_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Detalle_Factura">
+        <PropertyRef Name="Id_detalle_factura" />
+      </Principal>
+      <Dependent Role="TBL_Productos">
+        <PropertyRef Name="Id_detalle_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_Me__0F624AF8">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Merma" Role="TBL_Merma" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Merma" Role="TBL_Detalle_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Merma">
+        <PropertyRef Name="Id_Merma" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Merma">
+        <PropertyRef Name="Id_Merma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_pr__10566F31">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Merma" Role="TBL_Detalle_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Merma">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_Or__7A672E12">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Orden_Fabricacion" Role="TBL_Orden_Fabricacion" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Orden_Fabricacion" Role="TBL_Detalle_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_Orden" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Orden_Fabricacion">
+        <PropertyRef Name="Id_Orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Detal__Id_pr__7B5B524B">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Detalle_Orden_Fabricacion" Role="TBL_Detalle_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Detalle_Orden_Fabricacion">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Distritos_Id_distrito">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Distritos" Role="TBL_Distritos" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" Role="TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Distritos">
+        <PropertyRef Name="Id_distrito" />
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_distrito" />
+        <PropertyRef Name="Id_canton" />
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Direcciones_Provincias_Id_provincia">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Provincias" Role="TBL_Provincias" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Direcciones_cliente" Role="TBL_Direcciones_cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Direcciones_cliente">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Distritos_Provincias_Id_provincia">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Provincias" Role="TBL_Provincias" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Distritos" Role="TBL_Distritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Provincias">
+        <PropertyRef Name="Id_provincia" />
+      </Principal>
+      <Dependent Role="TBL_Distritos">
+        <PropertyRef Name="Id_provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Factu__Id_es__628FA481">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Factura">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Merma__Id_es__0C85DE4D">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Merma" Role="TBL_Merma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Merma">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Orden__Id_es__76969D2E">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Orden_Fabricacion" Role="TBL_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Produ__Id_es__6C190EBB">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Productos">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_es__412EB0B6">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Usuarios" Role="TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Orden__Id_fa__778AC167">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Orden_Fabricacion" Role="TBL_Orden_Fabricacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Orden_Fabricacion">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RprtC__Id_fa__09A971A2">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_RprtCierreCajas" Role="TBL_RprtCierreCajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_RprtCierreCajas">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Opera__Id_Mo__46E78A0C">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Modulos" Role="TBL_Modulos" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Operaciones" Role="TBL_Operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Modulos">
+        <PropertyRef Name="Id_Modulo" />
+      </Principal>
+      <Dependent Role="TBL_Operaciones">
+        <PropertyRef Name="Id_Modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Perfi__Id_Op__4AB81AF0">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Operaciones" Role="TBL_Operaciones" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Perfil_Operacion" Role="TBL_Perfil_Operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Operaciones">
+        <PropertyRef Name="Id_Operacion" />
+      </Principal>
+      <Dependent Role="TBL_Perfil_Operacion">
+        <PropertyRef Name="Id_Operacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Perfi__Id_Ro__49C3F6B7">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Roles" Role="TBL_Roles" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Perfil_Operacion" Role="TBL_Perfil_Operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Roles">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="TBL_Perfil_Operacion">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Recic__Id_pr__160F4887">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Reciclaje" Role="TBL_Reciclaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Reciclaje">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Ubica__Id_pr__73BA3083">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Productos" Role="TBL_Productos" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Ubicaciones" Role="TBL_Ubicaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Productos">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="TBL_Ubicaciones">
+        <PropertyRef Name="Id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Recic__Id_Ti__151B244E">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Tipo_Reciclaje" Role="TBL_Tipo_Reciclaje" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Reciclaje" Role="TBL_Reciclaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Tipo_Reciclaje">
+        <PropertyRef Name="Id_Tipo_Reciclaje" />
+      </Principal>
+      <Dependent Role="TBL_Reciclaje">
+        <PropertyRef Name="Id_Tipo_Reciclaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_Ro__403A8C7D">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Roles" Role="TBL_Roles" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Usuarios" Role="TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Roles">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Usuar__Id_Ti__3F466844">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Tiempos_Usuario" Role="TBL_Tiempos_Usuario" Multiplicity="0..1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Usuarios" Role="TBL_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Tiempos_Usuario">
+        <PropertyRef Name="Id_Tiempo" />
+      </Principal>
+      <Dependent Role="TBL_Usuarios">
+        <PropertyRef Name="Id_Tiempo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_Consulta_Factura_Detalle_Result">
+    <Property Type="Int32" Name="Id_detalle_factura" Nullable="false" />
+    <Property Type="Int32" Name="Id_factura" Nullable="true" />
+    <Property Type="String" Name="Codigo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Descripcion_Producto" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="Precio_unitario" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Filtrar_CierreCajas_Result">
+    <Property Type="Int32" Name="Id_factura" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Cierre" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Tipo_Factura" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Forma_Pago" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Entradas" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Salidas" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Filtrar_CuentasCobrar_Result">
+    <Property Type="Int32" Name="Id_CuentaCobrar" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Facturacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Vencimiento" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Identificacion_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Interes_Mora" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Facturado" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Filtrar_Pagar_Result">
+    <Property Type="Int32" Name="Id_CxP" Nullable="false" />
+    <Property Type="Int32" Name="Id_Cliente" Nullable="false" />
+    <Property Type="Int32" Name="Id_modulo" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_factura" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Tipo_devolucion" Nullable="false" MaxLength="60" />
+    <Property Type="Decimal" Name="Monto_devolucion" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_Iniciar_Session_Result">
+    <Property Type="String" Name="Identificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Contraseña" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="Sp_Listar_CierreCajas_Result">
+    <Property Type="Int32" Name="Id_CierreCajas" Nullable="false" />
+    <Property Type="Int32" Name="Id_factura" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Cierre" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Tipo_Factura" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Forma_Pago" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Entradas" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Salidas" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Listar_CuentasCobrar_Result">
+    <Property Type="Int32" Name="Id_CuentaCobrar" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Facturacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Vencimiento" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Identificacion_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Interes_Mora" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Facturado" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Listar_CuentasPagar_Result">
+    <Property Type="Int32" Name="Id_CxP" Nullable="false" />
+    <Property Type="Int32" Name="Id_Cliente" Nullable="false" />
+    <Property Type="Int32" Name="Id_modulo" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_factura" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Tipo_devolucion" Nullable="false" MaxLength="60" />
+    <Property Type="Decimal" Name="Monto_devolucion" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Listar_ReporteCierreCajas_Result">
+    <Property Type="Int32" Name="Id_RprtCierreCajas" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_cierre" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="Total_Ventas_Contado" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Ventas_Credito" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Devoluciones" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Efectivo" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Tarjeta" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Merma" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_General" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Sp_Listar_ReporteCuentasXCobrar_Result">
+    <Property Type="Int32" Name="Id_CuentaCobrar" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_Facturacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Vencimiento" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Identificacion_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Interes_Mora" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Total_Facturado" Nullable="false" Precision="20" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_Clientes_Result">
+    <Property Type="String" Name="Tipo_identificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Identificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="45" />
+    <Property Type="DateTime" Name="Fecha_nacimiento" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_creacion" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="45" />
+    <Property Type="Int32" Name="Telefono" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_Descuentos_Estandar_Result">
+    <Property Type="Int32" Name="Id_DescEstandar" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_creacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_modificacion" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Cantidad_Minima" Nullable="false" />
+    <Property Type="Int32" Name="Cantidad_Maxima" Nullable="false" />
+    <Property Type="Int32" Name="Descuento" Nullable="false" />
+    <Property Type="String" Name="Dia" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_DescuentosVIP_Result">
+    <Property Type="Int32" Name="Id_DescVIP" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_creacion" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_modificacion" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Descuento" Nullable="false" />
+    <Property Type="Int32" Name="Puntos" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_Productos_Result">
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nombre_producto" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Tipo_envasado" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descripcion_producto" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Nivel_fragilidad" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="Cantidad_mililitros" Nullable="false" />
+    <Property Type="Int32" Name="Nivel_Alcohol" Nullable="false" />
+    <Property Type="Decimal" Name="Precio_producto" Nullable="false" Precision="20" Scale="2" />
+    <Property Type="DateTime" Name="Fecha_emision" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_caducidad" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Stock_Inicial" Nullable="false" />
+    <Property Type="Int32" Name="Stock_Actual" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha_ingreso" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Id_estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_Usuarios_Result">
+    <Property Type="Int32" Name="Id_usuario" Nullable="false" />
+    <Property Type="String" Name="Identificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Id_estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Tipo_Usuario_Result">
+    <Property Type="Int32" Name="Id_Rol" Nullable="true" />
+    <Property Type="String" Name="Identificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_Mostrar_Ordenes_Fabricacion_Result">
+    <Property Type="Int32" Name="Id_Orden" Nullable="false" />
+    <Property Type="Int32" Name="Id_factura" Nullable="true" />
+    <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FechaFabricacion" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Id_estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Listar_Direcciones_Result">
+    <Property Type="Int32" Name="Id_direccion" Nullable="false" />
+    <Property Type="String" Name="Dsc_direccion" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Id_provincia" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Id_canton" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="Id_distrito" Nullable="false" MaxLength="2" />
+    <Property Type="Int32" Name="Id_cliente" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="TBL_Devoluciones">
+    <Key>
+      <PropertyRef Name="Id_Devolucion" />
+    </Key>
+    <Property Name="Id_Devolucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Razon_Devolucion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado_Fisico" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MontoDevolucion" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+    <Property Name="Estado_Inventario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Id_factura" Type="Int32" Nullable="false" />
+    <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_Clientes" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_cl__70DDC3D8" FromRole="TBL_Devoluciones" ToRole="TBL_Clientes" />
+    <NavigationProperty Name="TBL_Estado" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_Es__71D1E811" FromRole="TBL_Devoluciones" ToRole="TBL_Estado" />
+    <NavigationProperty Name="TBL_Factura" Relationship="ProyectoFinalBeerLabModel.FK__TBL_Devol__Id_fa__6FE99F9F" FromRole="TBL_Devoluciones" ToRole="TBL_Factura" />
+  </EntityType>
+  <Association Name="FK__TBL_Devol__Id_cl__70DDC3D8">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Clientes" Role="TBL_Clientes" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Devoluciones" Role="TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Clientes">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Devol__Id_Es__71D1E811">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Estado" Role="TBL_Estado" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Devoluciones" Role="TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Estado">
+        <PropertyRef Name="Id_estado" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_Devol__Id_fa__6FE99F9F">
+    <End Type="ProyectoFinalBeerLabModel.TBL_Factura" Role="TBL_Factura" Multiplicity="1" />
+    <End Type="ProyectoFinalBeerLabModel.TBL_Devoluciones" Role="TBL_Devoluciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Factura">
+        <PropertyRef Name="Id_factura" />
+      </Principal>
+      <Dependent Role="TBL_Devoluciones">
+        <PropertyRef Name="Id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SP_Mostrar_Detalle_Ordenes_Fabricacion_Result">
+    <Property Type="Int32" Name="Id_Detalle" Nullable="false" />
+    <Property Type="String" Name="Desc_Producto" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Int32" Name="Id_Orden" Nullable="true" />
+    <Property Type="Int32" Name="Id_producto" Nullable="true" />
+  </ComplexType>
+</Schema>
